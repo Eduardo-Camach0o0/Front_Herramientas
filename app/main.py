@@ -1,45 +1,56 @@
 import flet as ft
+import requests
 
 def main(page):
     
     chat_log = ft.Column()
 
-    # Función para manejar el envío de mensajes
     def send_message(e):
         user_message = ft.Text(f"Tú: {user_input.value}", size=18)
         chat_log.controls.append(user_message)
 
-        # Respuesta del bot
-        bot_response = ft.Text(f"Bot: {get_bot_response(user_input.value)}", size=18)
+        
+        bot_response = ft.Text(f"Bot: {get_bot_response(user_input.value)}", size=18, text_align= ft.TextAlign.LEFT)
         chat_log.controls.append(bot_response)
 
-        # Limpiar el campo de entrada
+      
         user_input.value = ""
         page.update()
 
-
     def get_bot_response(user_message):
-       
-        if "hola" in user_message.lower():
-            return "¡Hola! ¿Cómo puedo ayudarte hoy?"
-        elif "adiós" in user_message.lower():
-            return "¡Adiós! Que tengas un buen día."
+
+        url = "http://127.0.0.1:5000/mensaje"  # Reemplaza con la URL de tu API
+        data = {
+            "mensaje": user_message
+        }
+
+        response = requests.post(url, json=data)
+        print(response)
+        if response.status_code == 200:
+            print("Datos enviados correctamente:", response.json())
+
+            respuesta = response.json()["respuesta"]
+          
+            return respuesta
+           
         else:
-            return "Lo siento, no entiendo tu mensaje."
+            print("Error en la solicitud:", response.status_code)
+        
+
+            return "Gracias por tu mensaje. Por el momento estamos teniendo problemas de comunicacion"
 
     user_input = ft.TextField(label="Escribe tu mensaje", width=500)
-
     send_button = ft.ElevatedButton("Enviar", on_click=send_message, height=50, width=100)
 
     parent_container = ft.Container(
         width=page.width,
-        height=page.height,
+        height=800,
         alignment=ft.alignment.center
     )
 
     chat_container = ft.Container(
         width=700,
-        height=800,
+        height=900,
         bgcolor="#D3D3D3",
         padding=3,  
         alignment=ft.alignment.center,
@@ -49,7 +60,7 @@ def main(page):
                 ft.Container(
                     width=700,
                     height=700,
-                    padding =30,
+                    padding=30,
                     border_radius=10,
                     bgcolor=ft.colors.WHITE,
                     content=ft.Column(
@@ -63,7 +74,6 @@ def main(page):
                         send_button
                     ],
                     alignment=ft.MainAxisAlignment.CENTER,
-                    
                 )
             ]
         )
@@ -74,4 +84,6 @@ def main(page):
     page.add(parent_container)
 
 ft.app(target=main, view=ft.AppView.WEB_BROWSER)
-    
+
+
+
