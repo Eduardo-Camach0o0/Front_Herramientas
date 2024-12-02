@@ -4,13 +4,41 @@ Proyecto enfocado a resolver dudas sobre los temas vistos en la materia de Herra
 
 ## FUNCIONALIDAD  
 
-- `Funcionalidad 1`:
+- `Funcionalidad 1`: Dotar de un interfaz gráfica al proyecto de chatbot
+- `Funcionalidad 2`: Facilitar el uso del modelo y del proyecto a los usuarios
 
-## 📁 "Enlace del Proyecto"
+##   Detalles sobre las dependencias
+- *FLET:* Es un framework basado en Flutter para el desarrollo de aplicaciones moviles, web y descritorio con Python
+- *REQUESTS:* Libreria para hacer peticiones a un servidor
 
-<div align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/5uQzNMOANr4" frameborder="0" allowfullscreen></iframe>
-</div>
+
+##   Instalación y configuración del proyecto
+
+
+- `Ejecutar la siguiente línea para clonar el repositorio`:
+  
+```bash
+git clone https://github.com/Eduardo-Camach0o0/Front_Herramientas.git
+```
+
+- `Ejecutar la siguiente línea para  instalar las dependencias`: 
+
+```bash
+pip install -r requerimientos.txt
+```
+- *NOTA*: Considere crear un ambiente virtual para instalar las dependencias
+
+
+## Vizualizacion
+
+- *Si todo lo anterior fue considerado y aplicado correctamente debería ver lo siguiente*
+
+
+
+
+## Otros recursos adicionales
+ - 📁 [Visitar el repositorio del backend, como complemento](https://github.com/Eduardo-Camach0o0/Back_Herramientas.git)
+  
 
 ## Autores
 Mauricio Leon, Eduardo Camacho y Oliver Ramírez Mendoza
