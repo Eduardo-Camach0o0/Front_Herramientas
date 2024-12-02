@@ -33,7 +33,7 @@ pip install -r requerimientos.txt
 
 - *Si todo lo anterior fue considerado y aplicado correctamente debería ver lo siguiente*
 
-
+- https://github.com/user-attachments/assets/eeef1620-1ea4-4b5d-896b-159b73192a24
 
 
 ## Otros recursos adicionales
